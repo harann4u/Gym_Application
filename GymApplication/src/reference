@@ -1,0 +1,115 @@
+  // const fetchMuscle = async ()=>{
+  //   const resArrayJson = []
+  //   try{
+  //     const response = await axios.get('/muscles')
+  //      response.data.map((items)=>{
+  //           const Data = {
+  //             "Mus_id" : items.Mus_id,
+  //             "Muscle_Name" :items.Muscle_Name,
+  //             "state":false
+  //           }
+  //           resArrayJson.push(Data)
+
+  //         })
+  //         setmuscle(resArrayJson)
+       
+  //   } catch(err){
+  //     console.log(err);
+  //   }
+  // }
+
+
+  // const fetchWorkoutName = async (Mus_id)=>{
+  //   try{
+  //     axios.get({
+  //       url:baseURL+'/workoutNames',
+  //       header:{},
+  //       data:{
+  //         Muscleid:Mus_id
+  //       }
+  //     })
+  //   }catch(err){
+  //     console.log(err)
+  //   }
+  // }
+
+
+  // const handleExerciseSub = ()=>{
+  //   event.preventDefault();
+    // const Mus_id = [];
+    // muscle.map((items)=>{
+    //     if(items.state === true){
+    //        Mus_id.push(items.Mus_id)
+    //     }
+    // })
+  //   console.log("Id data")
+  //   console.log(Mus_id)
+  // }
+
+  // const muscleData =  useSelector((state)=> state.user)
+  // console.log("MuscelData");
+  // console.log(muscleData)
+
+  // const [workout,setworkout] = useState([
+  //   {
+  //     "muscleName" : "Chest",
+  //     "workoutName" : ["BenchPress","DumbelPress","Chest Dip"]
+  //   },
+  //   {
+  //     "muscleName" : "shoulder",
+  //     "workoutName" : ["ArnoldPress","Dumbel lateral rise","facepull"]
+  //   }
+  // ])
+
+//   const  selectmuscelData =  muscleName.muscles.filter((items)=>{
+//     return items.check == true
+//   })
+//   dispatch(selectedMuscle(selectmuscelData))
+//   const idData = []
+//   selectmuscelData.map((item)=>{
+//       if(item.check == true){
+//           idData.push(item.Mus_id) ;
+//       } 
+//   })
+// var extractData = []
+// for (var i=0;i<idData.length;i++){
+//     extractData.push(workoutData.workoutNames.filter((items)=>{
+//         if(items.Mus_id === idData[i]){
+//         return WorkoutNames
+//         }
+//     }))  
+// }
+// for(var i = 0;i<idLength;i++){
+//   workoutData.workoutNames.filter((items)=>{
+//         if(items.Mus_id ===selectedMuscleList.musclesNames[i].Mus_id){
+//              console.log(WorkoutNames) 
+//         }
+//     })
+// }
+//  <div className="inputGroup">
+//                   <input  type="checkbox" id="checkbox-18"/>
+//                   <label className='labelWorkoutNames'>{items.Workout_Name}</label>
+//            </div>
+//  <div className='lzistworkout-flexContainer'>
+//               {listData}
+//           </div>
+// const  getworkoutNames = (id)=>{
+//       extractData = [];
+//       extractData =  workoutData.workoutNames.filter((items)=>{
+//         return  items.Mus_id == id
+//        })
+//        const retData =  extractData.map((items)=>(
+//         <div class="round">
+//           <input type="checkbox" />
+//           <label for="checkbox-18">{items.Workout_Name}</label>
+//       </div>
+//         ))
+//            return retData
+//   }
+// setcheckWorkoutData(listData.map(items=>
+  // items.Wok_id === id ? {...items,check : !items.check} : items))
+
+//   selectedMuscle:(state,action) =>{
+//     state.musclesNames = action.payload
+// }
+

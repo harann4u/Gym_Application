@@ -1,0 +1,29 @@
+create Database GymManagement;
+create Table Muscle (Mus_id int,Muscle_Name varchar(225),Primary key(Mus_id));
+insert into muscle (Mus_id,Muscle_Name)value(2,"Shoulder"),(3,"Triceps"),(4,"Biceps"),(5,"Back"),(6,"Leg"),(7,"Cardio"),(8,"Rest");
+
+create Table WorkOutName (Mus_id int,Wok_id int , Workout_Name varchar(225),Primary key(Wok_id));
+insert into WorkOutName (Mus_id,Wok_id,Workout_Name)value(1,1,"Decline push-up"),(1,2,"Dumbbell bench press"),(1,3,"Dumbbell Flyes"),(1,4,"Cable crossover"),(1,5,"Machine fly")
+insert into WorkOutName (Mus_id,Wok_id,Workout_Name)value(1,6,"Plate press"),(1,7,"Push-up"),(1,8,"Plate press"),(1,9,"Low cable crossover"),(1,10,"Speed bench")
+
+
+insert into WorkOutName (Mus_id,Wok_id,Workout_Name)value(2,11,"Side lateral raise"),(2,12,"Overhead press"),(2,13,"Face pull"),(2,14,"Arnold press"),(2,15,"
+Rear delt fly")
+insert into WorkOutName (Mus_id,Wok_id,Workout_Name)value(2,16,"W Raise"),(2,17,"Serrano press"),(2,18,"Dumbbell face pull"),(2,19,"Trap bar shrug"),(2,20,"Shoulder fly")
+
+triceps
+insert into WorkOutName (Mus_id,Wok_id,Workout_Name)value(3,21,"Lying triceps extension"),(3,22,"Tricep dips"),(3,23,""),(3,24,"Overhead Triceps Extension
+"),(3,25,"Push-down")
+insert into WorkOutName (Mus_id,Wok_id,Workout_Name)value(3,26,"Parallel bar dip"),(3,27,"Machine dip"),(3,28,"Tate press"),(3,29,"TRX tricep extension"),(3,30,"Skull crusher")
+
+biceps
+insert into WorkOutName (Mus_id,Wok_id,Workout_Name)value(4,31,"Bicep curl"),(4,32,"Barbell curl"),(4,33,"Concentration curls"),(4,34,"Ez-bar curl"),(4,35,"Cheat curls")
+insert into WorkOutName (Mus_id,Wok_id,Workout_Name)value(4,36,"Spider curl"),(4,37,"Arm day"),(4,38,"Rope curls"),(4,39,"Dumbbell pullover"),(4,40,"Scott Curl")
+
+back
+insert into WorkOutName (Mus_id,Wok_id,Workout_Name)value(5,41,"Deadlift"),(5,42,"One-arm dumbbell row"),(5,43,"Bent-over row"),(5,44,"Pull-up"),(5,45,"Row")
+insert into WorkOutName (Mus_id,Wok_id,Workout_Name)value(5,46,"Barbell deadlift"),(5,47,"Barbell deadlift"),(5,48,"T-bar row"),(5,49,"Pendlay Row"),(5,50,"Inverted row")
+
+leg
+insert into WorkOutName (Mus_id,Wok_id,Workout_Name)value(6,51,"Goblet squat"),(6,52,"Walking lunges"),(6,53,"Romanian deadlift"),(6,54,"Romanian deadlift"),(6,55,"Single leg deadlift")
+insert into WorkOutName (Mus_id,Wok_id,Workout_Name)value(6,56,"Leg curl"),(6,57,"Barbell squat"),(6,58,"Leg extension"),(6,59,"Barbell glute bridge"),(6,60,"Sumo squat")
