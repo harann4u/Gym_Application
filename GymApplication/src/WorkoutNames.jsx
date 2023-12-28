@@ -31,12 +31,11 @@ export const WorkoutNames = () => {
         })
         dispatch(selectedMuscle(selectmuscelData)) // sedning only seleced muscle
        var extractData = []
-       selectmuscelData.map((muscleitems)=>{
-        extractData = workoutData.workoutNames.filter((workoutitems)=>{
-            return  muscleitems.Mus_id == workoutitems.Mus_id
-           })
-           console.log("extract",extractData)
-           dispatch(selectedworkout(extractData))
+        selectmuscelData.map((muscleitems)=>{
+                extractData = workoutData.workoutNames.filter((workoutitems)=>{
+                    return  muscleitems.Mus_id == workoutitems.Mus_id
+                })
+                dispatch(selectedworkout(extractData))
        })
 
         navigate('/workoutSelection')
@@ -56,7 +55,7 @@ export const WorkoutNames = () => {
                                         <input 
                                             type="checkbox" 
                                             onChange={() => chooseMuscle(items.Mus_id) }
-                                            checked = {items.check}      /*this line used to check the box */
+                                            defaultChecked = {items.check}      /*this line used to check the box */
                                         /> 
                                         <span> {items.Muscle_Name} </span>
                                 </label>

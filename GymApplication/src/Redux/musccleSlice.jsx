@@ -44,7 +44,6 @@ const muscleSlice =  createSlice({
     },
     reducers:{
        checkMuscle:(state,action)=>{    // this reducer is used update the state after the slecting the muscle
-        //   console.log("reducer Data",action.payload)
           state.muscles = action.payload
         }
     }

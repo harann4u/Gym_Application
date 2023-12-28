@@ -2,32 +2,33 @@ import React from 'react'
 import { useDispatch,useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 import {selectedworkout,selectedMuscle} from "./Redux/selectedMusWorkout.js"
-
 import { useNavigate } from 'react-router-dom'
-
-
+import _ from 'lodash';
 
 export const WorkoutSelection = () => {
   const muscleName = useSelector((state)=> state.workout) 
   const selectedMuscleList = useSelector((state)=>state.selectData)
-  const selectedworkoutList = useSelector((state)=>state.selectData)
-  const workoutData =  useSelector((state)=> state.workout)
+  const selectedWorkoutList = useSelector((state)=>state.selectData)
   const [listData , setListData] = useState([]);
-  // const [checkWorkoutData,setcheckWorkoutData] = useState();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   var extractData = []
+  const [workoutList,setworkList] = _.cloneDeep(selectedWorkoutList.workoutNames);
+  
 
-
- const  getworkoutNames = (id)=>{
+ const  getworkoutNames = (Musid)=>{
       extractData = [];
-      extractData =  selectedworkoutList.workoutNames.filter((items)=>{
-        return  items.Mus_id == id
+      extractData =  workoutList.filter((items)=>{
+        return  items.Mus_id == Musid
        })
         return extractData
   }
  const handleCheck = (id)=>{
-  
+  const Data = listData.map((item)=>(
+    item.Wok_id === id ?{...item, check:!item.check} : item)
+   )
+   setListData(Data)
+   console.log("ListData",listData)
  }
  
  const handleWorkoutSub = ()=>{
@@ -48,11 +49,12 @@ export const WorkoutSelection = () => {
           {listData.map((items)=>(
             <li className='item' key = {items.Wok_id}>
                  <input 
+                 id = {items.Wok_id}
                  type="checkbox"
-                //  checked = {items.check} 
                  onChange={() => handleCheck(items.Wok_id)}
+                 checked = {items.check} 
                  />
-                 <label for="checkbox-18">{items.Workout_Name}</label>
+                 <label >{items.Workout_Name}</label>
             </li>
              
           ))}
