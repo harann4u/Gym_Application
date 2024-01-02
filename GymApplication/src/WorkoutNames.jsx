@@ -16,7 +16,6 @@ export const WorkoutNames = () => {
     
 
     const chooseMuscle = (id)=>{
-        console.log("comming indie")
         const musclesList = _.cloneDeep(muscleName.muscles);
         const checkedMuscelData = musclesList.map((item)=>(
          item.Mus_id === id ?{...item, check:!item.check} : item)
@@ -24,21 +23,20 @@ export const WorkoutNames = () => {
         dispatch(checkMuscle(checkedMuscelData))  
      }
 
-     const handleExerciseSub = ()=>{
+  const handleExerciseSub = ()=>{
         event.preventDefault();
         const  selectmuscelData =  muscleName.muscles.filter((items)=>{
             return items.check == true
         })
-        dispatch(selectedMuscle(selectmuscelData)) // sedning only seleced muscle
-       var extractData = []
+        dispatch(selectedMuscle(selectmuscelData))
+        var extractData = []
         selectmuscelData.map((muscleitems)=>{
                 extractData = workoutData.workoutNames.filter((workoutitems)=>{
                     return  muscleitems.Mus_id == workoutitems.Mus_id
-                })
+                }) 
                 dispatch(selectedworkout(extractData))
-       })
-
-        navigate('/workoutSelection')
+            })
+           navigate('/workoutSelection')
   }
     
     

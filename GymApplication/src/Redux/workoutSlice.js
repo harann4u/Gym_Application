@@ -42,6 +42,7 @@ export const getWorkoutList =  createAsyncThunk('get/workoutNames',async ()=>{
        });
 
     },
+   
 })
  
 // export const {checkMuscle } = muscleSlice.actions;

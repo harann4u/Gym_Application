@@ -17,10 +17,14 @@ export const selectedDataslice = createSlice({
             
         },
          selectedMuscle:(state,action) =>{
-                state.musclesNames = action.payload
+            state.musclesNames = action.payload
+            },
+            checkedWorkout:(state,action)=>{
+                console.log("actionData",action.payload)
+                state.workoutNames = action.payload
             }
     }
 
 }) 
-export const {selectedworkout , selectedMuscle} = selectedDataslice.actions;
+export const {selectedworkout , selectedMuscle,checkedWorkout} = selectedDataslice.actions;
 export default selectedDataslice.reducer;

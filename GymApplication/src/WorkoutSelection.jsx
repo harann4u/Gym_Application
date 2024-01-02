@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch,useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
-import {selectedworkout,selectedMuscle} from "./Redux/selectedMusWorkout.js"
+import {selectedworkout,selectedMuscle,checkedWorkout} from "./Redux/selectedMusWorkout.js"
 import { useNavigate } from 'react-router-dom'
 import _ from 'lodash';
 
@@ -13,22 +13,30 @@ export const WorkoutSelection = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   var extractData = []
-  const [workoutList,setworkList] = _.cloneDeep(selectedWorkoutList.workoutNames);
-  
 
- const  getworkoutNames = (Musid)=>{
-      extractData = [];
-      extractData =  workoutList.filter((items)=>{
-        return  items.Mus_id == Musid
-       })
-        return extractData
+  const  getworkoutNames = (Musid)=>{
+     console.log("getworkoutNames")
+        extractData = [];
+        extractData = selectedWorkoutList.workoutNames.filter((items)=>{
+          return  items.Mus_id == Musid
+        })
+          return extractData
   }
- const handleCheck = (id)=>{
-  const Data = listData.map((item)=>(
-    item.Wok_id === id ?{...item, check:!item.check} : item)
-   )
-   setListData(Data)
-   console.log("ListData",listData)
+
+
+ const handleCheck = (Workoutid,muscleId)=>{
+  console.log("handlecheck")
+  const workoutList = _.cloneDeep(selectedWorkoutList.workoutNames);
+    const extractListData =  workoutList.map((items)=>
+        items.Wok_id == Workoutid ?{...items, check:!items.check} : items)
+    dispatch(checkedWorkout(extractListData))
+   var  lsitDataExtract = [];
+   lsitDataExtract = extractListData.filter((items)=>{
+      return  items.Mus_id == muscleId
+    })
+      
+    setListData(lsitDataExtract)
+   
  }
  
  const handleWorkoutSub = ()=>{
@@ -40,7 +48,7 @@ export const WorkoutSelection = () => {
         <div className='button-muscle-flexContainer'>
               {selectedMuscleList.musclesNames.map((items)=>(
                     <div>
-                      <button className='button_name'onClick={()=> setListData(getworkoutNames(items.Mus_id))} >{items.Muscle_Name}</button>
+                      <button className='button_name'onClick={()=> setListData(getworkoutNames(items.Mus_id,))} >{items.Muscle_Name}</button>
                     </div>
               ))}
         </div>
@@ -51,7 +59,7 @@ export const WorkoutSelection = () => {
                  <input 
                  id = {items.Wok_id}
                  type="checkbox"
-                 onChange={() => handleCheck(items.Wok_id)}
+                 onChange={() => handleCheck(items.Wok_id,items.Mus_id)}
                  checked = {items.check} 
                  />
                  <label >{items.Workout_Name}</label>
